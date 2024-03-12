@@ -28,9 +28,8 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 	chmod u+x nvim.appimage &&
 	sudo mkdir -p /opt/nvim &&
 	sudo mv nvim.appimage /opt/nvim/nvim &&
-	echo export PATH="$PATH:/opt/nvim/" >>$HOME/.bashrc
-# nvim requires FUSE
-sudo add-apt-repository universe && sudo apt install libfuse2
+	# nvim requires FUSE
+	sudo add-apt-repository universe && sudo apt install libfuse2
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt install ./google-chrome-stable_current_amd64.deb && rm google-chrome-stable_current_amd64.deb
 sudo snap install --classic obsidian
@@ -50,24 +49,27 @@ git config --global user.email "linemdavton@gmail.com"
 
 # github auth for git
 ssh-keygen -t ed25519 -a 100 -f $HOME/.ssh/github
-#gh auth login
+echo "====Need to setup gh login only once!====="
+gh auth login
 gh auth setup-git
 
 # setup dotfiles and configuration
 echo ".cfg" >.gitignore
 git clone --bare https://github.com/linem-davton/.cfg $HOME/.cfg
 # backup the dotfiles that already exit
-mkdir -p $HOME/.config-backup/.config/fish && \
-git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
-xargs -I{} mv {} .config-backup/{}
+mkdir -p $HOME/.config-backup/.config/fish &&
+	git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout 2>&1 | egrep "\s+\." | awk {'print $1'} |
+	xargs -I{} mv {} .config-backup/{}
 
 git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout
 
 # setup obsidian
-git clone https://github.com/linem-davton/obsidianvault.git $HOME
+git clone https://github.com/linem-davton/obsidianvault.git $HOME/obsidian
+sudo apt-get install "fonts-cmu"
 
 # setup projects dir
 mkdir -p $HOME/projects
 
-# auto start fish
+# setup .bashrc
 #echo fish >$HOME/.bashrc
+#	echo export PATH="$PATH:/opt/nvim/" >>$HOME/.bashrc

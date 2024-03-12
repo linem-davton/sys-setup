@@ -1,6 +1,6 @@
-# What it does not do 
-.bashrc file 
-However is does backup the .bash_aliases file 
+# .bashrc
+fish
+.bash_aliases 
 
 # Sets up
 - Chrome, tmux, neovim, obsidian, fish
