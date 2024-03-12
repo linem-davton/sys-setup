@@ -1,6 +1,5 @@
 # Use
-Run the script, needs sudo privileges
-``` BASH
+Run the script, needs sudo privileges``` BASH
 ./setup.bash
 ```
 - Github auth needs to be setup only once, incase script has to be rerun, comment out the line 
