@@ -16,7 +16,9 @@ fi
 sudo $INSTALLER install tmux -y
 sudo $INSTALLER install fish -y
 sudo $INSTALLER install curl -y
-
+sudp $INSTALLER install googler -y
+sudo $INSTALLER install gcc -y
+sudo $INSTALLER install g++ -y
 # Neovim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage &&
 	chmod u+x nvim.appimage &&
@@ -60,7 +62,7 @@ mkdir -p $HOME/.config-backup/.config/fish &&
 	xargs -I{} mv {} .config-backup/{}
 
 # checkout the dotfiles
-git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout 
+git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout
 git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --local status.showUntrackedFiles no
 
 #---------------------- OBSIDIAN----------------------
@@ -81,7 +83,7 @@ if [ x"${BASHRC_SETUP}"=="done" ]; then
 	# nvim path
 	echo export PATH="$PATH:/opt/nvim/" >>$HOME/.bashrc
 	#startup
-	echo tmux >> $HOME/.bashrc
-	echo fish >> $HOME/.bashrc
+	echo tmux >>$HOME/.bashrc
+	echo fish >>$HOME/.bashrc
 	export BASHRC_SETUP="done"
 fi
