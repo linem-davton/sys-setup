@@ -78,7 +78,7 @@ if [ x"${BASHRC_SETUP}"=="done" ]; then
 	mkdir -p $HOME/projects
 
 	# setup obsiian dir needed by bash_aliases
-	echo OBSIDIAN_DIR="$HOME/obsidian" >>$HOME/.bashrc
+	echo export OBSIDIAN_DIR="$HOME/obsidian" >>$HOME/.bashrc
 
 	# nvim path
 	echo export PATH="$PATH:/opt/nvim/" >>$HOME/.bashrc
