@@ -60,7 +60,8 @@ mkdir -p $HOME/.config-backup/.config/fish &&
 	xargs -I{} mv {} .config-backup/{}
 
 # checkout the dotfiles
-git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout
+git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout 
+git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --local status.showUntrackedFiles no
 
 #---------------------- OBSIDIAN----------------------
 # setup obsidian
@@ -80,7 +81,7 @@ if [ x"${BASHRC_SETUP}"=="done" ]; then
 	# nvim path
 	echo export PATH="$PATH:/opt/nvim/" >>$HOME/.bashrc
 	#startup
-	echo tmux
+	echo tmux >> $HOME/.bashrc
 	echo fish >> $HOME/.bashrc
 	export BASHRC_SETUP="done"
 fi
