@@ -12,12 +12,10 @@ if [ $NAME="Ubuntu" ]; then
 	INSTALLER="apt"
 	sudo apt update && sudo apt-get upgrade
 fi
-
 #---------------------- PACKAGES ----------------------
 sudo $INSTALLER install tmux -y
 sudo $INSTALLER install fish -y
 sudo $INSTALLER install curl -y
-sudo $INSTALLER install fuse
 
 # Neovim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage &&
@@ -25,10 +23,10 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 	sudo mkdir -p /opt/nvim &&
 	sudo mv nvim.appimage /opt/nvim/nvim &&
 	# nvim requires FUSE
-	sudo add-apt-repository universe && sudo apt install libfuse2
+	sudo add-apt-repository universe && sudo apt install libfuse2 -y
 
 # Google Chrome
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt install ./google-chrome-stable_current_amd64.deb && rm google-chrome-stable_current_amd64.deb
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt install ./google-chrome-stable_current_amd64.deb -y && rm google-chrome-stable_current_amd64.deb
 
 # cleanup
 sudo apt autoremove
@@ -81,6 +79,8 @@ if [ x"${BASHRC_SETUP}"=="done" ]; then
 
 	# nvim path
 	echo export PATH="$PATH:/opt/nvim/" >>$HOME/.bashrc
-	echo fish >$HOME/.bashrc
+	#startup
+	echo tmux
+	echo fish >> $HOME/.bashrc
 	export BASHRC_SETUP="done"
 fi
