@@ -16,9 +16,19 @@ fi
 sudo $INSTALLER install tmux -y
 sudo $INSTALLER install fish -y
 sudo $INSTALLER install curl -y
+sudo $INSTALLER install wget -y
+sudo $INSTALLER install unzip -y
+sudo $INSTALLER install tar -y
+sudo $INSTALLER install gzip -y
+
 sudp $INSTALLER install googler -y
-sudo $INSTALLER install gcc -y
-sudo $INSTALLER install g++ -y
+sudo $INSTALLER install build-essential -y
+sudo $INSTALLER install gdb -y
+sudo $INSTALLER install cmake -y
+sudo $INSTALLER install npm -y
+sudo $INSTALLER install ripgrep -y
+
+#---------------------- Neovim ----------------------
 # Neovim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage &&
 	chmod u+x nvim.appimage &&
