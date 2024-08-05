@@ -20,7 +20,6 @@ sudo $INSTALLER install wget -y
 sudo $INSTALLER install unzip -y
 sudo $INSTALLER install tar -y
 sudo $INSTALLER install gzip -y
-sudo $INSTALLER install autojump
 
 sudp $INSTALLER install googler -y
 sudo $INSTALLER install build-essential -y
@@ -29,6 +28,7 @@ sudo $INSTALLER install cmake -y
 sudo $INSTALLER install npm -y
 sudo $INSTALLER install ripgrep -y
 sudo $INSTALLER install direnv -y
+sudo $INSTALLER install batcat -y
 
 #---------------------- Neovim ----------------------
 # Neovim
