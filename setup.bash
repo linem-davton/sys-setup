@@ -20,6 +20,7 @@ sudo $INSTALLER install wget -y
 sudo $INSTALLER install unzip -y
 sudo $INSTALLER install tar -y
 sudo $INSTALLER install gzip -y
+sudo $INSTALLER install autojump
 
 sudp $INSTALLER install googler -y
 sudo $INSTALLER install build-essential -y
@@ -27,6 +28,7 @@ sudo $INSTALLER install gdb -y
 sudo $INSTALLER install cmake -y
 sudo $INSTALLER install npm -y
 sudo $INSTALLER install ripgrep -y
+sudo $INSTALLER install direnv -y
 
 #---------------------- Neovim ----------------------
 # Neovim
@@ -42,7 +44,6 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &
 
 # cleanup
 sudo apt autoremove
-
 #------------------GIT AND GITHUB---------------------
 sudo $INSTALLER install git -y
 
@@ -94,6 +95,17 @@ if [ x"${BASHRC_SETUP}"=="done" ]; then
 	echo export PATH="$PATH:/opt/nvim/" >>$HOME/.bashrc
 	#startup
 	echo tmux >>$HOME/.bashrc
-	echo fish >>$HOME/.bashrc
 	export BASHRC_SETUP="done"
 fi
+
+#---------------------- FZF ----------------------
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
+#---------------------- zoxide  ----------------------
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
+
+#---------------------- lazydocker----------------------
+curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+
