@@ -28,7 +28,7 @@ sudo $INSTALLER install cmake -y
 sudo $INSTALLER install npm -y
 sudo $INSTALLER install ripgrep -y
 sudo $INSTALLER install direnv -y
-sudo $INSTALLER install batcat -y
+sudo $INSTALLER install bat -y
 sudo $INSTALLER install tig -y
 #---------------------- Neovim ----------------------
 # Neovim
