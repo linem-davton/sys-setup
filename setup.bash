@@ -96,7 +96,7 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zi
 # setup obsidian
 if [[ ! -d $HOME/obsidian ]]; then
   sudo snap install --classic obsidian
-  git clone https://github.com/linem-davton/obsidianvault.git $HOME/obsidian
+  git clone git@github.com:linem-davton/obsidianvault.git $HOME/obsidian
   sudo apt-get install "fonts-cmu"
 fi
 
