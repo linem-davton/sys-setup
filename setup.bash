@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /usr/bin/bash -e -o pipefail
 
 # run from home dir
 #Set pwd as $HOME
@@ -20,7 +20,10 @@ sudo $INSTALLER install wget -y
 sudo $INSTALLER install unzip -y
 sudo $INSTALLER install tar -y
 sudo $INSTALLER install gzip -y
+sudo $INSTALLER install tree -y
+sudo $INSTALLER install btop -y
 
+sudo $INSTALLER install git -y
 sudp $INSTALLER install googler -y
 sudo $INSTALLER install build-essential -y
 sudo $INSTALLER install gdb -y
@@ -44,12 +47,14 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 	sudo add-apt-repository universe && sudo apt install libfuse2 -y
 
 # Google Chrome
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt install ./google-chrome-stable_current_amd64.deb -y && rm google-chrome-stable_current_amd64.deb
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \ 
+     &&  sudo apt install ./google-chrome-stable_current_amd64.deb -y \ 
+     && rm google-chrome-stable_current_amd64.deb
 
 # cleanup
 sudo apt autoremove
+
 #------------------GIT AND GITHUB---------------------
-sudo $INSTALLER install git -y
 
 # github cli gh
 sudo mkdir -p -m 755 /etc/apt/keyrings && wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg >/dev/null &&
@@ -63,12 +68,11 @@ echo "====Need to setup gh login only once!====="
 gh auth login
 gh auth setup-git
 
-# setup git
-git config --global user.name "linem.davton"
-git config --global user.email "linemdavton@gmail.com"
 
 #---------------------- DOT FILES ----------------------
 echo ".cfg" >.gitignore
+# remove the existing .cfg folder
+rm -rf $HOME/.cfg && \
 git clone --bare https://github.com/linem-davton/.cfg $HOME/.cfg
 
 # backup the dotfiles that already exit
@@ -86,21 +90,6 @@ sudo snap install --classic obsidian
 git clone https://github.com/linem-davton/obsidianvault.git $HOME/obsidian
 sudo apt-get install "fonts-cmu"
 
-#---------------------- BASHRC ----------------------
-# runs only once in current session
-if [ x"${BASHRC_SETUP}"=="done" ]; then
-	#dir to store projects
-	mkdir -p $HOME/projects
-
-	# setup obsiian dir needed by bash_aliases
-	echo export OBSIDIAN_DIR="$HOME/obsidian" >>$HOME/.bashrc
-
-	# nvim path
-	echo export PATH="$PATH:/opt/nvim/" >>$HOME/.bashrc
-	#startup
-	echo tmux >>$HOME/.bashrc
-	export BASHRC_SETUP="done"
-fi
 
 #---------------------- FZF ----------------------
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -118,4 +107,3 @@ LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/re
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
-
