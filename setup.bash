@@ -1,10 +1,12 @@
-#!/usr/bin/bash -e
+#!/usr/bin/bash
+
+set -e
 
 # run from home dir
 #Set pwd as $HOME
 cd $HOME
 
-if [ -f /etc/os-release ]; then
+if [[ -f /etc/os-release ]]; then
   OS=$NAME
 fi
 # installing all the packages
@@ -76,22 +78,30 @@ git clone --bare https://github.com/linem-davton/.cfg $HOME/.cfg
 # backup the dotfiles that already exit
 mkdir -p $HOME/.config-backup/.config/fish/functions $HOME/.config-backup/.config/clangd $HOME/.config-backup/.config/nvim/lua/plugins/dap $HOME/.config-backup/.config/nvim/lua/plugins/lsp \
   $HOME/.config-backup/.config/nvim/lua/linemdavton $HOME/.config-backup/.config/nvim/lua/lazy
+
 git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
 
 # checkout the dotfiles
 git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout
 git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --local status.showUntrackedFiles no
 
+#--------- NEOVIM Python Env -------
+cd $HOME/.config/nvim && python3 -m venv venv
+#------ nerd-fonts -------
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip &&
+  unzip 0xProto.zip -d $HOME/.fonts &&
+  fc-cache -fv
+
 #---------------------- OBSIDIAN----------------------
 # setup obsidian
-if [[! -d $HOME/obsidian ]]; then
+if [[ ! -d $HOME/obsidian ]]; then
   sudo snap install --classic obsidian
   git clone https://github.com/linem-davton/obsidianvault.git $HOME/obsidian
   sudo apt-get install "fonts-cmu"
 fi
 
 #---------------------- FZF ----------------------
-if [[! -d $HOME/.fzf]]; then
+if [[ ! -d $HOME/.fzf ]]; then
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   ~/.fzf/install
 fi
