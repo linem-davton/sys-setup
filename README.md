@@ -1,30 +1,31 @@
 # Use
 
-Run the script, needs sudo privileges``` BASH
+Run the script, needs sudo privileges
+
+```BASH
 ./setup.bash
 
-````
-- Github auth needs to be setup only once, incase script has to be rerun, comment out the line
-```BASH
-gh auth login
-````
+```
 
-- user name and user email are defined in script for git config
+## Setups
 
-# .bashrc
+- Chrome
+- Git and Github
+  - config
+  - ssh keys
+  - delta, tig
+- Neovim
+- .bashrc, .bash_aliases, .tmux-config
+- lazygit, lazydocker
+- zoxide, fzf
 
-fish
-.bash_aliases
+- C++ Dev Environment
 
-# Sets up
+  - gdb, gcc, make, cmake
 
-- Chrome, tmux, neovim, obsidian, fish
-- Github auth for Git
-- Config for tmux, bash_aliases, fish, neovim
+- Python Dev Environment
+- venv
+
 - Obsidian vault
-
-# Chrome extensions
-
-- Keyboard shortcuts for Chrome - https://github.com/crittermike/shortkeys
 
 # To Do
