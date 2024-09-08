@@ -118,3 +118,8 @@ curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/lates
 tar xf lazygit.tar.gz lazygit &&
   sudo install lazygit /usr/local/bin &&
   rm lazygit.tar.gz lazygit
+
+#-----------deltagit-------------------
+wget https://github.com/dandavison/delta/releases/download/0.18.1/git-delta_0.18.1_amd64.deb &&
+  sudo dpkg -i git-delta_0.18.1_amd64.deb &&
+  rm -rf git-delta_0.18.1_amd64.deb
