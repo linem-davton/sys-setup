@@ -27,6 +27,7 @@ sudo $INSTALLER install git -y
 sudo $INSTALLER install googler -y
 sudo $INSTALLER install build-essential -y
 sudo $INSTALLER install gdb -y
+sudo $INSTALLER install clang -y
 sudo $INSTALLER install npm -y
 sudo $INSTALLER install ripgrep -y
 sudo $INSTALLER install direnv -y
