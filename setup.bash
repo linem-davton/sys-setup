@@ -38,6 +38,7 @@ sudo $INSTALLER install python3-venv -y
 #---------------------- CMAKE ----------------------
 wget https://github.com/Kitware/CMake/releases/download/v3.30.2/cmake-3.30.2-linux-x86_64.sh
 sudo sh cmake-3.30.2-linux-x86_64.sh --prefix=/usr/local --skip-license
+rm cmake-3.30.2-linux-x86_64.sh
 
 #---------------------- Neovim ----------------------
 # Neovim
