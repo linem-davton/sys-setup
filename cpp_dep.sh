@@ -21,9 +21,9 @@ sudo apt install gdb -y
 sudo apt install clang -y
 
 # ----- CMake 3.30.2 -----
-wget https://github.com/Kitware/CMake/releases/download/v3.30.2/cmake-3.30.2-linux-x86_64.sh
-sudo sh cmake-3.30.2-linux-x86_64.sh --prefix=/usr/local --skip-license
-rm cmake-3.30.2-linux-x86_64.sh
+wget https://github.com/Kitware/CMake/releases/download/v3.31.5/cmake-3.31.5-linux-x86_64.sh
+sudo sh cmake-3.31.5-linux-x86_64.sh --prefix=/usr/local --skip-license
+rm cmake-3.31.5-linux-x86_64.sh
 
 # ----- Ninja 1.10.0 -----
 sudo apt install ninja-build -y
