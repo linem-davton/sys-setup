@@ -54,6 +54,7 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &
 
 # cleanup
 sudo apt autoremove
+
 #------------------GIT AND GITHUB---------------------
 
 # github cli gh
@@ -89,6 +90,8 @@ git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --local status.showUntrackedF
 
 #--------- NEOVIM Python Env -------
 cd $HOME/.config/nvim && python3 -m venv venv
+
+
 #------ nerd-fonts -------
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip &&
   unzip 0xProto.zip -d $HOME/.fonts &&
@@ -125,3 +128,16 @@ tar xf lazygit.tar.gz lazygit &&
 wget https://github.com/dandavison/delta/releases/download/0.18.1/git-delta_0.18.1_amd64.deb &&
   sudo dpkg -i git-delta_0.18.1_amd64.deb &&
   rm -rf git-delta_0.18.1_amd64.deb
+
+
+#---------------------- RUST ----------------------
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source $HOME/.cargo/env
+rustup update
+
+#---------------------- YAZI (Terminal File Manager) ----------------------
+rustup update
+cargo install --locked yazi-fm yazi-cli
+
+#---------------------- Dua-cli (Disk Usage) ----------------------
+cargo install dua-cli # Usage dua i  
