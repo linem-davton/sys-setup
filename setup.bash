@@ -34,6 +34,8 @@ sudo $INSTALLER install direnv -y
 sudo $INSTALLER install bat -y
 sudo $INSTALLER install tig -y
 sudo $INSTALLER install python3-venv -y
+# UV for Python 
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
 #---------------------- CMAKE ----------------------
 wget https://github.com/Kitware/CMake/releases/download/v3.30.2/cmake-3.30.2-linux-x86_64.sh
