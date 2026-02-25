@@ -44,10 +44,10 @@ rm cmake-3.30.2-linux-x86_64.sh
 
 #---------------------- Neovim ----------------------
 # Neovim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage &&
-  chmod u+x nvim.appimage &&
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage &&
+  chmod u+x nvim-linux-x86_64.appimage &&
   sudo mkdir -p /opt/nvim &&
-  sudo mv nvim.appimage /opt/nvim/nvim &&
+  mv nvim-linux-x86_64.appimage /opt/nvim/nvim &&
   # nvim requires FUSE
   sudo add-apt-repository universe && sudo apt install libfuse2 -y
 
